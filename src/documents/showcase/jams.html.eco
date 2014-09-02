@@ -1,0 +1,25 @@
+---
+title: "Game Jams"
+layout: jams
+---
+
+<div class="center-align-a">
+	<div class="row">
+	
+		<% for jam in @getCollection('ld29').toJSON(): %>
+		
+		<div class="col-md-6 showcase-game">
+			
+			<h3><%= jam.title %> by <%= jam.author %></h3>
+				
+			<a class="showcase-game-thumbnail" href="<%= jam.website %>" property="dc:title" target="_blank">
+				
+				<img width="300" height="156" src="<%= @getThumbnail("/jams/ld29/#{jam.title}.png", "zoomcrop", { w: 300, h: 156 }) %>" 
+					alt="<%= jam.title %>" title="<%= jam.website %>">
+			</a>
+			
+		</div>
+		
+		<% end %>
+	</div>
+</div>
